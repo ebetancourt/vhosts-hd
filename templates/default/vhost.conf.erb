@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+    ServerName <%= vdomain %>
+    ServerAlias www.<%= vdomain %>
+    ServerAlias dev.<%= vdomain %>
+    DocumentRoot "/var/www/<%= vdomain %>/current"
+    php_value error_reporting 30719
+    php_flag display_errors On
+    RewriteEngine On
+    SetEnv ENVIRONMENT "development"
+    CustomLog "/var/log/apache2/<%= vdomain %>-access_log" combined
+    ErrorLog "/var/log/apache2/<%= vdomain %>-error_log"
+    <Directory "/var/www/<%= vdomain %>/current">
+        Options all
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
