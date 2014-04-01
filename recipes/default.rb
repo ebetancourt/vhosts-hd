@@ -14,6 +14,7 @@
       owner 'www-data'
       group 'www-data'
       action :create
+      recursive true
     end
 
     template "/var/www/#{vhost}/releases/test/index.html" do
