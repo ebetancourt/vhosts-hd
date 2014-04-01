@@ -8,7 +8,7 @@
 #
 
 
-node[:vhost_hd][:vhosts].each do |vhost|
+(node[:vhost_hd][:vhosts]).each do |vhost|
     template "/etc/apache2/sites-available/#{vhost}" do
       source "vhost.conf.erb"
       mode 0440
