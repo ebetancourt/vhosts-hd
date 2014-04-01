@@ -9,9 +9,9 @@
     SetEnv ENVIRONMENT "development"
     CustomLog "/var/log/apache2/<%= @vdomain %>-access_log" combined
     ErrorLog "/var/log/apache2/<%= @vdomain %>-error_log"
-    <Directory "/var/www/<%= @vdomain %>/current">
+    <Directory "/var/www/<%= @vdomain %>">
         Options all
-        DirectoryIndex index.php
+        DirectoryIndex index.php index.html
         AllowOverride All
         Order allow,deny
         Allow from all
